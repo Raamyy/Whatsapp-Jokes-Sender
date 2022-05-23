@@ -21,11 +21,12 @@ def send_message(fromN,toN,message_body):
                 from_=fromN,
                 body=message_body,      
                 to=toN )
+    print(message.body, message.price, message.price_unit)
 
 def get_random_programming_joke():
-    response = requests.get("https://official-joke-api.appspot.com/jokes/programming/random").json()
+    response = requests.get("https://backend-omega-seven.vercel.app/api/getjoke").json()
     #print(response)
-    return response[0]["setup"]+" "+response[0]["punchline"]
+    return response[0]["question"]+" "+response[0]["punchline"]
 
 # load enviroment variables
 load_dotenv(verbose=True)
